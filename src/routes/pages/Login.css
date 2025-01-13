@@ -1,0 +1,22 @@
+.commonLayoutContainer .login{
+    height: 100%;
+}
+.Login {
+    background-color: #fff;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.Login .title {
+    width: 370px;
+    height: 80px;
+    font-size: 80px;
+    line-height: 88px;
+    text-align: center;
+    color: #E84D2B;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

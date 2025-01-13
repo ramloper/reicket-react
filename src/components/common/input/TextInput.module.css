@@ -1,0 +1,12 @@
+.whiteTextInput {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 16px;
+    gap: 10px;
+    width: 370px;
+    height: 60px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 11px;
+}

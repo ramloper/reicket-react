@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    src: url("./Pretendard-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./Pretendard-ExtraLight.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    src: url("./Pretendard-Light.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: bold;
+    src: url("./Pretendard-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: lighter;
+    src: url("./Pretendard-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: lighter;
+    src: url("./Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: lighter;
+    src: url("./Pretendard-Thin.woff") format("woff");
+}
+@font-face {
+    font-family: "GmarketSansTTFBold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("./GmarketSansTTFBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "GmarketSansTTFLight";
+    font-style: normal;
+    font-weight: 300;
+    src: url("./GmarketSansTTFLight.ttf") format("truetype");
+}
+@font-face {
+    font-family: "GmarketSansTTFMedium";
+    font-style: normal;
+    font-weight: 500;
+    src: url("./GmarketSansTTFMedium.ttf") format("truetype");
+}
