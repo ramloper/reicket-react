@@ -1,32 +1,30 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import TextInput from '../common/input/TextInput'
 import styles from "./LoginForm.module.css"
 import MyButton from '../common/button/MyButton'
-
-interface loginParam {
-    id: string,
-    password: string
-}
+import { loginParam } from '../../types/login'
+import { getAccessToken, loginAction } from '../../lib/login'
 
 const LoginForm = () => {
-    const [loginParam, setLoginParma] = useState({
-        id: "",
+    const [loginParam, setLoginParma] = useState<loginParam>({
+        loginId: "",
         password: ""
     });
-    const onChangeLoginParam = (e) => {
+    const onChangeLoginParam = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginParma({
             ...loginParam,
             [e.target.name]: e.target.value
         })
     }
+
     return (
-        <div className='LoginForm'>
+        <div className={styles.LoginForm}>
             <TextInput
-                className={styles.a}
-                name='text'
-                value={loginParam.id}
+                className='whiteTextInput'
+                name='loginId'
+                value={loginParam.loginId}
                 onChange={onChangeLoginParam}
-                onSubmit={() => { }}
+                onSubmit={() => loginAction(loginParam)}
                 placeholder='아이디'
             />
             <TextInput
@@ -35,8 +33,9 @@ const LoginForm = () => {
                 value={loginParam.password}
                 onChange={onChangeLoginParam}
                 placeholder='비밀번호'
-                onSubmit={() => { }} />
-            <MyButton />
+                onSubmit={() => loginAction(loginParam)} />
+            <MyButton text="로그인" onSubmit={() => loginAction(loginParam)} />
+            <MyButton text="리프레쉬" onSubmit={() => getAccessToken()} />
         </div>
     )
 }

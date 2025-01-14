@@ -7,9 +7,8 @@ const Login = () => {
             <div className='Login'>
                 <div className='title'>Re;cket</div>
                 <LoginForm />
-                <div>SnsLoginButton</div>
-                <div>Join</div>
-
+                {/* <div>SnsLoginButton</div>
+                <div>Join</div> */}
             </div>
 
         </div>

@@ -1,8 +1,18 @@
 import React from 'react'
 import "./MyButton.css"
-const MyButton = () => {
+
+interface MyButtonParam {
+    text: string,
+    onSubmit: Function
+}
+
+const MyButton = ({ text, onSubmit }: MyButtonParam) => {
+    const onClick = () => {
+        onSubmit()
+    }
     return (
-        <button className='MyButton'>로그인</button>
+        <button className='MyButton'
+            onClick={onClick}>{text}</button>
     )
 }
 
