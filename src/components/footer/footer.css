@@ -1,0 +1,13 @@
+.commonLayoutContainer .footer{
+    position : fixed;
+    bottom : 0px;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    gap : 20px;
+    justify-content: space-between;
+    padding-bottom: 30px
+}

@@ -3,18 +3,34 @@ import TextInput from '../common/input/TextInput'
 import styles from "./LoginForm.module.css"
 import MyButton from '../common/button/MyButton'
 import { loginParam } from '../../types/login'
-import { getAccessToken, loginAction } from '../../lib/login'
+import { loginAction, setAccessToken } from '../../lib/login'
+import { useNavigate } from 'react-router-dom'
+import { myToast } from '../../lib/alert'
+import { privateApi, publicApi } from '../../lib/sendApi'
 
 const LoginForm = () => {
+    const nav = useNavigate();
     const [loginParam, setLoginParma] = useState<loginParam>({
-        loginId: "",
-        password: ""
+        loginId: "local",
+        password: "1"
     });
     const onChangeLoginParam = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginParma({
             ...loginParam,
             [e.target.name]: e.target.value
         })
+    }
+    const handelLogin = async () => {
+        loginAction(loginParam)
+            .then((res: any) => {
+                const accessToken = res.data.data;
+                setAccessToken(accessToken);
+                nav("/", { replace: true })
+            })
+            .catch((error: any) => {
+                myToast(error.response.data.data.value, 'error')
+                // alert()
+            })
     }
 
     return (
@@ -34,8 +50,7 @@ const LoginForm = () => {
                 onChange={onChangeLoginParam}
                 placeholder='비밀번호'
                 onSubmit={() => loginAction(loginParam)} />
-            <MyButton text="로그인" onSubmit={() => loginAction(loginParam)} />
-            <MyButton text="리프레쉬" onSubmit={() => getAccessToken()} />
+            <MyButton text="로그인" onSubmit={handelLogin} />
         </div>
     )
 }
