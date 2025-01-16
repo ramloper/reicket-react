@@ -10,13 +10,14 @@ export const privateApi = axios.create({
 });
 
 privateApi.interceptors.request.use((config) => {
-    config.headers.Authorization = `${localStorage.getItem('accessToken')}`
+
     return config
 })
 
+let retryCount = 0;
 privateApi.interceptors.response.use(
     (response) => {
-        toast.update("...")
+        retryCount = 0;
         return response;
     },
     async (error) => {
@@ -28,12 +29,13 @@ privateApi.interceptors.response.use(
             }
             const response = await axios.request(error.config);
             return response
+
         }
         return Promise.reject(error)
     }
 )
 
-export const sendRequestWithToast = async (requestConfig: AxiosRequestConfig<any>) => {
+export const sendPrivateRequestWithToast = async (requestConfig: AxiosRequestConfig<any>) => {
     return toast.promise(
         privateApi(requestConfig), // Axios 요청
         {
@@ -42,24 +44,40 @@ export const sendRequestWithToast = async (requestConfig: AxiosRequestConfig<any
             error: 'Request Failed!', // 실패 메시지
         },
         {
-            autoClose: 3000, // 3초 후 자동 닫힘
+            autoClose: 1000, // 3초 후 자동 닫힘
         }
     );
 };
+
+export const sendPublicRequestWithToast = async (requestConfig: AxiosRequestConfig<any>) => {
+    return toast.promise(
+        publicApi(requestConfig), // Axios 요청
+        {
+            pending: 'Loading...', // 로딩 상태
+            success: 'Request Successful!', // 성공 메시지
+            error: 'Request Failed!', // 실패 메시지
+        },
+        {
+            autoClose: 1000, // 3초 후 자동 닫힘
+        }
+    );
+};
+
 export const publicApi = axios.create({
     baseURL: `${import.meta.env.VITE_BASE_URL}`
 });
-
-
+publicApi.interceptors.response.use(null, (error) => {
+    if (error.response?.status === 401) {
+        window.location.href = '/login'
+    }
+})
 const getAccessToken = async () => {
     return publicApi.post('/refresh', {}, {
         withCredentials: true
     })
         .then(res => {
             setAccessToken(res.data.data)
-            // console.log(res)
         })
         .catch(error => {
-            // console.log(error)
         })
 }
