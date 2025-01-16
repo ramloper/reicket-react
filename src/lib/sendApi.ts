@@ -10,14 +10,11 @@ export const privateApi = axios.create({
 });
 
 privateApi.interceptors.request.use((config) => {
-
+    config.headers.Authorization = localStorage.getItem('accessToken')
     return config
 })
-
-let retryCount = 0;
 privateApi.interceptors.response.use(
     (response) => {
-        retryCount = 0;
         return response;
     },
     async (error) => {
@@ -72,12 +69,15 @@ publicApi.interceptors.response.use(null, (error) => {
     }
 })
 const getAccessToken = async () => {
-    return publicApi.post('/refresh', {}, {
-        withCredentials: true
-    })
-        .then(res => {
-            setAccessToken(res.data.data)
+    try {
+        const res = await publicApi.post('/refresh', {}, {
+            withCredentials: true
         })
-        .catch(error => {
-        })
+        localStorage.setItem("accessToken", res.data.data)
+    } catch (error) {
+        console.log(error);
+
+    }
+
+
 }

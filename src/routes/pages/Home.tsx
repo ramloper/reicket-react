@@ -1,25 +1,29 @@
-import React from 'react'
-import { privateApi, publicApi, sendPrivateRequestWithToast, sendPublicRequestWithToast } from '../../lib/sendApi'
+import { useEffect, useState } from 'react'
 import MyButton from '../../components/common/button/MyButton'
-import { useNavigate } from 'react-router-dom'
+import { getApi } from '../../lib/test'
 import "./home.css"
 const Home = () => {
-    const nav = useNavigate();
-    const getAccessToken = async () => {
-        const response = await sendPrivateRequestWithToast({
-            url: '/admin/token/verify',
-            method: 'GET'
-        })
+    const [test, setTest] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const getTest = async () => {
+        const test = await getApi();
+        console.log("test : ", test)
+        setTest(true)
+        setIsLoading(true)
+    }
 
+    const isFlag = () => {
+        setTest((pre) => !pre)
     }
-    const logoutReqeust = async () => {
-        publicApi.put('/logout', null, { withCredentials: true })
-            .then(() => { nav("/login") })
-    }
+    useEffect(() => {
+        setIsLoading(false)
+        getTest();
+    }, [test])
     return (
         <div className='home'>
-            <MyButton text='토큰 검증' onSubmit={getAccessToken} />
-            <MyButton text='로그아웃' onSubmit={logoutReqeust} />
+            <button onClick={isFlag}>asdfasdf</button>
+            {isLoading ?? <div>로딩중입니다................</div>}
+            {test && <MyButton text='토큰 검증' onSubmit={() => { }} />}
         </div>
     )
 }
