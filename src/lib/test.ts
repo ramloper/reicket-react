@@ -1,8 +1,8 @@
-import { sendPrivateRequestWithToast } from "./sendApi";
+import { sendPublicRequestWithToast } from "./sendApi";
 
 export const getApi = async () => {
-    const response = await sendPrivateRequestWithToast({
-        url: '/admin/token/verify',
+    const response = await sendPublicRequestWithToast({
+        url: '/center/list/idName',
         method: 'GET'
     })
     return response.data

@@ -1,12 +1,11 @@
-import React, { ChangeEvent, useState } from 'react'
-import TextInput from '../common/input/TextInput'
-import styles from "./LoginForm.module.css"
-import MyButton from '../common/button/MyButton'
-import { loginParam } from '../../types/login'
-import { loginAction, setAccessToken } from '../../lib/login'
+import { ChangeEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { myToast } from '../../lib/alert'
-import { privateApi, publicApi } from '../../lib/sendApi'
+import { loginAction, setAccessToken } from '../../lib/login'
+import { loginParam } from '../../types/login'
+import MyButton from '../common/button/MyButton'
+import TextInput from '../common/input/TextInput'
+import styles from "./LoginForm.module.css"
 
 const LoginForm = () => {
     const nav = useNavigate();

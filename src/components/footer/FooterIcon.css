@@ -1,0 +1,9 @@
+.footerIcon {
+    display : flex;
+    flex-direction : column;
+    text-align : center;
+}
+
+.footerText{
+    text-decoration: none;
+}
