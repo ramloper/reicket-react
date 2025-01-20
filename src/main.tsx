@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import './reset.css'
 // import App from './App.tsx'
 import Router from './routes/routes.tsx'
 import "./assets/fonts/Font.css"

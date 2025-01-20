@@ -3,15 +3,16 @@ import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import './App.css'
 import Footer from './components/footer/Footer'
+
 function App() {
   return (
-    <>
-      <div className='commonLayoutContainer'>
+    <div className='commonLayoutContainer'>
+      <div style={{ flex: 1, width: '100%' }}>
         <Outlet />
         <ToastContainer />
-        <Footer />
       </div>
-    </>
+      <Footer />
+    </div>
   )
 }
 

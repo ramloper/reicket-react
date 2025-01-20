@@ -2,29 +2,43 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .banner-slide {
-    padding: 20px;
+    padding: 0;
 }
 
 .banner-content {
     background-color: #f5f5f5;
-    padding: 40px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
-    height: 200px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin: 0;
+    height: 200px;
 }
 
 /* 슬라이더 dots 커스텀 스타일 */
+.slick-dots {
+    bottom: -25px;
+}
+
 .slick-dots li button:before {
     color: #666;
+    font-size: 8px;
 }
 
 .slick-dots li.slick-active button:before {
     color: #ff4400;
-} 
+}
+
+/* 슬라이더가 컨테이너를 벗어나지 않도록 */
+.slick-slider {
+    width: 100%;
+}

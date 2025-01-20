@@ -8,7 +8,7 @@ const Login = () => {
         localStorage.removeItem("accessToken")
     }
     return (
-        <div className='commonLayoutContainer login'>
+        <div className='login'>
             <div className='Login'>
                 {/* <div className='title'>Re;cket</div> */}
                 <LoginForm />
