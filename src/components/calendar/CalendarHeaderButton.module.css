@@ -1,0 +1,29 @@
+.btn{
+    padding: 10px;
+    width: 34px;
+    height: 34px;
+    background: #F1F1F1;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+/* Color */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px;
+
+width: 34px;
+height: 34px;
+
+background: #F1F1F1;
+border-radius: 10px;
+transform: rotate(-180deg);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
