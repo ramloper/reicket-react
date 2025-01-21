@@ -1,5 +1,5 @@
 
-import Calendar from "../../components/calendar/calendar"
+import Calendar from "../../components/calendar/Calendar"
 import CenterBannerLayout from "../../components/home/CenterBannerLayout"
 import CenterIconLayout from "../../components/home/CenterIconLayout"
 import "./home.css"
@@ -7,7 +7,7 @@ import "./home.css"
 const Home = () => {
     return (
         <div className="home-container">
-            {/* <CenterBannerLayout /> */}
+            <CenterBannerLayout />
             <CenterIconLayout />
             <Calendar />
         </div>

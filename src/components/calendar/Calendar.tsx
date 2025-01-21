@@ -3,13 +3,9 @@ import styles from './Calendar.module.css'
 import CalendarHeaderButton from './CalendarHeaderButton'
 import dayjs from 'dayjs'
 import { random } from 'nanoid'
+import DateItem from './DateItem'
+import { dayObject } from '../../types/Calendar'
 
-interface dayObject {
-    day: number,
-    courseStart: number,
-    courseEnd: number,
-    isOtherMonth: boolean,
-}
 
 const today = dayjs()
 const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토']
@@ -27,6 +23,7 @@ const Calendar = () => {
             courseStart: index + 1 === 4 || index + 1 === totalDays ? Number(random(1)) : 0,
             courseEnd: index + 1 === totalDays ? Number(random(1)) : 0,
             isOtherMonth: false,
+            isToday: false
         }
     })
     if (lastingDay < 7) {
@@ -36,6 +33,7 @@ const Calendar = () => {
                 courseStart: 0,
                 courseEnd: 0,
                 isOtherMonth: true,
+                isToday: false
             })
         })
     }
@@ -46,11 +44,11 @@ const Calendar = () => {
                 courseStart: 0,
                 courseEnd: 0,
                 isOtherMonth: true,
+                isToday: false
             })
             lastMonthDays -= 1
         })
     }
-    let nextMonthDays = 1;
     const onChangeDay = (day: number) => {
         setDayState(dayState.add(day, 'month'))
     }
@@ -81,18 +79,9 @@ const Calendar = () => {
                     </div>
                     <div className={styles.calendarDates}>
                         {dayList.map((item, index) => {
-                            if (item.day > totalDays) {
-                                item.day = nextMonthDays++
-                            }
-                            const isToday = dayState === today
+                            item.isToday = today.get('month') === dayState.get('month') && today.get('date') === item.day && today.get('year') === dayState.get('year')
                             return (
-                                <div
-                                    key={index}
-                                    className={`${styles.calendarDateItem} ${item.isOtherMonth ? styles.otherMonth : ''} ${styles.calendarBox} ${isToday ? styles.nowDate : ''}`}>
-                                    <div>{item.day}</div>
-                                    <div className={`${item.courseStart !== 0 ? styles.calendarCourse : styles.none} ${styles.start}`}>{item.courseStart}건</div>
-                                    <div className={`${item.courseEnd !== 0 ? styles.calendarCourse : styles.none} ${styles.end}`}>{item.courseEnd}건</div>
-                                </div>
+                                <DateItem key={index} {...item} />
                             );
                         })}
                     </div>
