@@ -63,6 +63,12 @@ export const sendPublicRequestWithToast = async (requestConfig: AxiosRequestConf
 export const publicApi = axios.create({
     baseURL: `${import.meta.env.VITE_BASE_URL}`
 });
+publicApi.interceptors.request.use((config) => {
+    if (localStorage.getItem('accessToken')) {
+        config.headers.Authorization = localStorage.getItem('accessToken')
+    }
+    return config
+})
 publicApi.interceptors.response.use(null, (error) => {
     if (error.response?.status === 401) {
         window.location.href = '/login'

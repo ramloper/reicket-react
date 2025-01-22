@@ -1,6 +1,20 @@
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
+    font-weight: 900;
+    src: url("./Pretendard-Black.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 800;
+    src: url("./Pretendard-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
     font-weight: 700;
     src: url("./Pretendard-Bold.woff") format("woff");
 }
@@ -8,54 +22,59 @@
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
-    font-weight: normal;
-    src: url("./Pretendard-ExtraLight.woff") format("woff");
+    font-weight: 600;
+    src: url("./Pretendard-SemiBold.woff") format("woff");
 }
 
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 500;
-    src: url("./Pretendard-Light.woff") format("woff");
-}
-
-@font-face {
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: bold;
     src: url("./Pretendard-Medium.woff") format("woff");
 }
 
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
-    font-weight: lighter;
+    font-weight: 400;
     src: url("./Pretendard-Regular.woff") format("woff");
 }
+
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
-    font-weight: lighter;
-    src: url("./Pretendard-SemiBold.woff") format("woff");
+    font-weight: 300;
+    src: url("./Pretendard-Light.woff") format("woff");
 }
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 200;
+    src: url("./Pretendard-ExtraLight.woff") format("woff");
+}
+
 @font-face {
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 100;
     src: url("./Pretendard-Thin.woff") format("woff");
 }
+
 @font-face {
     font-family: "GmarketSansTTFBold";
     font-style: normal;
     font-weight: 700;
     src: url("./GmarketSansTTFBold.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "GmarketSansTTFLight";
     font-style: normal;
     font-weight: 300;
     src: url("./GmarketSansTTFLight.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "GmarketSansTTFMedium";
     font-style: normal;

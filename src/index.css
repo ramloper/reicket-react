@@ -5,6 +5,7 @@
 
 .commonLayoutContainer{
     width: 100%;
+    min-width: 300px;
     max-width: 800px;
     margin: 0 auto;
     display: flex;
@@ -14,6 +15,8 @@
     border: solid 1px var(--gray9);
     min-height: 100vh;
     position: relative;
+    overflow-y: auto; /* 스크롤 허용 */
+    padding-bottom: 0; /* padding 제거 */
 }
 a{
     text-decoration: none;
@@ -95,9 +98,12 @@ a{
 
 html,
 body {
-    height: auto;
-    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 body, a {
@@ -106,3 +112,27 @@ body, a {
     background: #fff;
     /* min-width: 1903px; */
 }
+
+/* Slick slider 전역 스타일 */
+.slick-slider {
+    width: 100%;
+    height : 100%;
+    overflow: hidden;
+    padding-bottom: 30px; /* dots를 위한 여백 추가 */
+}
+
+.slick-dots {
+    position: relative !important; /* absolute에서 relative로 변경 */
+    bottom: 0 !important;
+    margin-top: 10px;
+}
+
+.slick-dots li button:before {
+    color: #666;
+    font-size: 8px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #ff4400;
+}
+

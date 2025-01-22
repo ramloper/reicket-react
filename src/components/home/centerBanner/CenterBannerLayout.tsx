@@ -1,9 +1,8 @@
-import React from 'react'
 import CenterBanner from './CenterBanner'
-import "./centerBannerLayout.css"
+import styles from "./CenterBannerLayout.module.css"
 const CenterBannerLayout = () => {
     return (
-        <div className='centerBannerLayout'>
+        <div className={styles.centerBannerLayout}>
             <CenterBanner />
         </div>
     )

@@ -1,0 +1,80 @@
+.centerCard{
+    width : 100%;
+    height : 100%;
+    border : 1px solid var(--gray9);
+    border-radius : 10px;
+    padding : clamp(15px, 5%, 10%);
+    display : flex;
+    flex-direction : column;
+    gap : clamp(20px, 3vh, 30px);
+    min-height : 200px;
+    font-weight : 400;
+}
+.centerCardHeader{
+    display : flex;
+    flex-direction : row;
+    align-items : center;   
+    gap : 5%;
+    font-size: clamp(14px, 2vw, 16px);
+}
+.star{
+    color : var(--yellow);
+    font-size : clamp(1.2rem, 2.5vw, 1.5rem);
+    display: flex;
+    align-items: center;
+}
+.isNotWish{
+    color : var(--gray1);
+}
+.isWish{
+    color : var(--red1);
+}
+.wish{
+    cursor : pointer;
+    font-size : clamp(1.8rem, 3vw, 2.3rem);
+    margin-left : auto;
+}
+
+.centerCardName{
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 900;
+    color : var(--black1)
+}
+
+.centerCardIntroduction {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.5;
+}
+
+.centerCardAddress {
+    font-size: clamp(14px, 2vw, 16px);
+    color: var(--gray1);
+}
+
+/* 태블릿 */
+@media screen and (max-width: 768px) {
+    .centerCard {
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 480px) {
+    .centerCard {
+        padding: 15px;
+        gap: 15px;
+        min-height: 180px;
+    }
+
+    .centerCardHeader {
+        gap: 3%;
+    }
+}
+
+/* 별점 컨테이너 스타일 추가 */
+.ratingContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

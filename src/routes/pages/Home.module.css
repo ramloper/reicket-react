@@ -1,0 +1,27 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding-top: 20px;
+    overflow-y: auto;
+    min-height: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .homeContainer {
+        gap: 15px;
+        padding-top: 15px;
+    }
+}
+
+.chatbotWrapper {
+    display:flex;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 120px;
+    margin-right: 40px;
+    width: 100%;
+    height: auto;
+}
