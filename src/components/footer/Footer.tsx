@@ -1,3 +1,4 @@
+import Chatbot from "../chatbot/Chatbot"
 import "./footer.css"
 import FooterIcon from './FooterIcon'
 const Footer = () => {
@@ -24,6 +25,7 @@ const Footer = () => {
     return (
         <ul className='footer'>
             {footerInfoList.map((footerInfo) => <FooterIcon key={footerInfo.name} {...footerInfo} />)}
+            <Chatbot />
         </ul>
     )
 }

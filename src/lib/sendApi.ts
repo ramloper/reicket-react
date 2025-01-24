@@ -32,13 +32,13 @@ privateApi.interceptors.response.use(
     }
 )
 
-export const sendPrivateRequestWithToast = async (requestConfig: AxiosRequestConfig<any>) => {
+export const sendPrivateRequestWithToast = async (requestConfig: AxiosRequestConfig<any>, { pending, success, error }: { pending: string, success: string, error: string }) => {
     return toast.promise(
         privateApi(requestConfig), // Axios 요청
         {
-            pending: 'Loading...', // 로딩 상태
-            success: 'Request Successful!', // 성공 메시지
-            error: 'Request Failed!', // 실패 메시지
+            pending: pending, // 로딩 상태
+            success: success, // 성공 메시지
+            error: error, // 실패 메시지
         },
         {
             autoClose: 1000, // 3초 후 자동 닫힘
@@ -46,13 +46,13 @@ export const sendPrivateRequestWithToast = async (requestConfig: AxiosRequestCon
     );
 };
 
-export const sendPublicRequestWithToast = async (requestConfig: AxiosRequestConfig<any>) => {
+export const sendPublicRequestWithToast = async (requestConfig: AxiosRequestConfig<any>, { pending, success, error }: { pending: string, success: string, error: string }) => {
     return toast.promise(
         publicApi(requestConfig), // Axios 요청
         {
-            pending: 'Loading...', // 로딩 상태
-            success: 'Request Successful!', // 성공 메시지
-            error: 'Request Failed!', // 실패 메시지
+            pending: pending, // 로딩 상태
+            success: success, // 성공 메시지
+            error: error, // 실패 메시지
         },
         {
             autoClose: 1000, // 3초 후 자동 닫힘
@@ -71,7 +71,8 @@ publicApi.interceptors.request.use((config) => {
 })
 publicApi.interceptors.response.use(null, (error) => {
     if (error.response?.status === 401) {
-        window.location.href = '/login'
+        if (confirm("로그인이 필요합니다. 로그인을 하러 가시겠습니까?"))
+            window.location.href = '/login'
     }
 })
 const getAccessToken = async () => {
